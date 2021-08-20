@@ -1,0 +1,17 @@
+#!bin/bash
+if [ -z "$1" ]
+then 
+  echo "file name for input 1 needed"
+  exit
+fi
+if [ -z "$2" ]
+then 
+  echo "no password input"
+  c20 $1 -h
+  curl -F "file=@$1.pdm"  pdm.pw:8080/file_up/UploadServlet > /dev/null
+  rm *.pdm
+  exit
+fi
+printf "$2\n"|c20 $1 -h
+curl -F "file=@$1.pdm"  pdm.pw:8080/file_up/UploadServlet > /dev/null
+rm *.pdm
