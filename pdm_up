@@ -8,10 +8,10 @@ if [ -z "$2" ]
 then 
   echo "no password input"
   c20 $1 -h
-  curl -F "file=@$1.pdm"  pdm.pw:8080/file_up/UploadServlet 
+  curl -F "file=@$1.pdm" -F "user_name=test_user1" pdm.pw:8080/file_up/UploadServlet 
   rm *.pdm
   exit
 fi
 printf "$2\n"|c20 $1 -h
-curl -F "file=@$1.pdm"  pdm.pw:8080/file_up/UploadServlet 
+curl -F "file=@$1.pdm" -F "user_name=test_user1" pdm.pw:8080/file_up/UploadServlet 
 rm *.pdm
