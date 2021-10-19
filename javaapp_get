@@ -7,13 +7,13 @@ fi
 if [ -z "$2" ]
 then 
   echo "no password input"
-  wget pdm.pw:8080/file_up/download/$1.pdm
+  wget pdm.pw:8080/fileserv/file-saved/$1.pdm
   c20de $1 -h
   rm *.pdm
   mv dec-$1 $1
   exit
 fi
-wget pdm.pw:8080/file_up/download/$1
+wget pdm.pw:8080/fileserv/file-saved/$1
 printf "$2\n"|c20de $1 -h
 rm *.pdm
 mv dec-$1 $1
